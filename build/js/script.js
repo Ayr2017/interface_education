@@ -1,6 +1,1 @@
-function multiple(first, second) {
-    return first * second;
-}
-console.log(multiple(4, 2));
-console.log(multiple(4, 3));
-console.log(multiple(5, 2));
+function o(o,l){return o*l}console.log(o(4,2)),console.log(o(4,3)),console.log(o(5,2));
