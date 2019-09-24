@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const concat = require('gulp-concat');
+const autoprefixer = require('gulp-autoprefixer');
 
 const cssFiles = [
     './src/css/main.css',
@@ -14,6 +15,10 @@ const jsFiles = [
 function styles() {
     return gulp.src(cssFiles)
         .pipe(concat('style.css'))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(gulp.dest('./build/css'));
 }
 
