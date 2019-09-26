@@ -5,6 +5,10 @@ const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
 const del = require('del');
 const browserSync = require('browser-sync').create();
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const watch = require('gulp-watch');
+
 
 const cssFiles = [
     './src/css/main.css',
@@ -44,7 +48,7 @@ function clean() {
     return del(['build/*']);
 }
 
-function watch() {
+function watching() {
     browserSync.init({
         server: {
             baseDir: "./"
@@ -55,10 +59,19 @@ function watch() {
     gulp.watch("./*.html").on('change', browserSync.reload);
 }
 
+function sassCompile() {
+    return gulp.src('./src/scss/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('./src/css'))
+}
+
 gulp.task('styles1', styles);
 gulp.task('scripts1', scripts);
 
 gulp.task('del', clean);
-gulp.task('watch', watch);
+gulp.task('watching', watch);
 gulp.task('build', gulp.series(clean, gulp.parallel(styles, scripts)));
-gulp.task('dev', gulp.series('build', 'watch'));
+gulp.task('sass-compile', sassCompile)
+gulp.task('dev', gulp.series('sass-compile', 'build', 'watching', ));

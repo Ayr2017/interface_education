@@ -1,7 +1,7 @@
-body {
-    background: burlywood;
-}
-
 p {
-    color: rosybrown;
-}
+  color: #f36896;
+  font-size: 15px; }
+  p:hover {
+    background: cyan; }
+
+/*# sourceMappingURL=main.css.map */
