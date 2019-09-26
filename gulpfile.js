@@ -56,6 +56,7 @@ function watching() {
     });
     gulp.watch('./src/css/**/*.css', styles);
     gulp.watch('./src/js/**/*.js', scripts);
+    gulp.watch('./src/scss/**/*.sass', sassCompile);
     gulp.watch("./*.html").on('change', browserSync.reload);
 }
 
