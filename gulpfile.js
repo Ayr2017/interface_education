@@ -71,7 +71,7 @@ gulp.task('styles1', styles);
 gulp.task('scripts1', scripts);
 
 gulp.task('del', clean);
-gulp.task('watching', watch);
+gulp.task('watching', watching);
 gulp.task('build', gulp.series(clean, gulp.parallel(styles, scripts)));
 gulp.task('sass-compile', sassCompile)
 gulp.task('dev', gulp.series('sass-compile', 'build', 'watching', ));
