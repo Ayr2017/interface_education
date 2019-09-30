@@ -10,8 +10,34 @@
 </head>
 
 <body>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sunt corrupti tempora eaque repellat, odio necessitatibus molestiae similique amet nihil totam error ea provident cum vero? Amet quos libero quidem?</p>
+    <div id="app">
+        <h1>string: {{name}}</h1>
+        <h1>sum: {{10+60}}</h1>
+        <h1>number: {{number}}</h1>
+        <h1>method: {{sayHello()}}</h1>
+        <h1>if statement: {{isOk ? 'I am Ok' : 'I am not Ok'}}</h1>
+        <h1>functions: {{string.split('').reverse().join('')}}</h1>
+        <h2><a v-bind:href="url">Google</a></h2>
+    </div>
     <script src="build/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'Vue',
+                number: 100,
+                isOk: true,
+                string: 'My name is Ayrat',
+                url: 'http://google.com'
+            },
+            methods: {
+                sayHello() {
+                    return 'I\'m function'
+                }
+            }
+        })
+    </script>
 </body>
 
 </html>
