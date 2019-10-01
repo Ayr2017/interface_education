@@ -1,1 +1,1 @@
-new Vue({ el: "#app", data: { name: "Vue" } });
+new VTTCue({el:"#app",data:{name:"Vue"}});

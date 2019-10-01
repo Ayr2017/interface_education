@@ -18,6 +18,10 @@
         <h1>if statement: {{isOk ? 'I am Ok' : 'I am not Ok'}}</h1>
         <h1>functions: {{string.split('').reverse().join('')}}</h1>
         <h2><a v-bind:href="url">Google</a></h2>
+        <h3>{{counter}}</h3>
+        <h3>{{counter2}}</h3>
+        <button v-on:click="rise">Click</button>
+        <button v-on:click="counter2++" v-on:mouseover="recolor">Click</button>
     </div>
     <script src="build/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -29,11 +33,19 @@
                 number: 100,
                 isOk: true,
                 string: 'My name is Ayrat',
-                url: 'http://google.com'
+                url: 'http://google.com',
+                counter: 0,
+                counter2: 0,
             },
             methods: {
                 sayHello() {
                     return 'I\'m function'
+                },
+                rise() {
+                    this.counter++;
+                },
+                recolor(event) {
+                    event.target.style.color = "red"
                 }
             }
         })
